@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aesthetic Quotes | Premium Inspiration Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="landing-background"></div>
+    
+    <div class="container">
+      <header class="hero">
+        <h1 class="main-title">Aesthetic Quotes</h1>
+        <p class="tagline">Words that match your mood, perfectly designed.</p>
+        
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="authorSearch" 
+            placeholder="Search by personality (e.g. Steve Jobs)..."
+            onkeypress="if(event.key === 'Enter') searchByAuthor()"
+          />
+          <button onclick="searchByAuthor()" class="btn-search">Search</button>
+        </div>
+      </header>
+
+      <div class="main-content">
+        <div class="quote-card" id="quoteCard">
+          <div id="loader" class="loader-container" style="display: none;">
+            <div class="spinner"></div>
+          </div>
+          <p class="quote-text" id="quoteText">Inspire your day with a single click.</p>
+          <span class="author" id="author"></span>
+        </div>
+
+        <div class="buttons">
+          <button onclick="generateQuote()" class="btn-primary" id="newQuoteBtn">
+            Random Quote
+          </button>
+          <div class="action-group">
+            <button onclick="downloadQuote()" class="btn-secondary" title="Download Image">
+              Download
+            </button>
+            <div class="share-container">
+              <button onclick="toggleShareMenu()" class="btn-secondary" id="shareBtnMain">Share</button>
+              <div class="share-menu" id="shareMenu">
+                <button onclick="shareTo('twitter')" class="share-icon twitter" title="Share on Twitter">𝕏</button>
+                <button onclick="shareTo('whatsapp')" class="share-icon whatsapp" title="Share on WhatsApp">💬</button>
+                <button onclick="shareTo('facebook')" class="share-icon facebook" title="Share on Facebook">f</button>
+                <button onclick="shareTo('linkedin')" class="share-icon linkedin" title="Share on LinkedIn">in</button>
+                <button onclick="shareTo('instagram')" class="share-icon instagram" title="Share on Instagram">📸</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <!-- html2canvas for image generation -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
